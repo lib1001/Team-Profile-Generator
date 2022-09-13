@@ -126,10 +126,9 @@ function init () {
             generateTeam();
         })
     }
-
-
+    
 function createHTML () {
-    console.log('Success! Your page has been created.')
+    console.log('Success! Your HTML page has been created.')
     fs.writeFileSync(outputPath, createTeam(teamArr))
 
 }

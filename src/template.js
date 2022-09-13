@@ -1,5 +1,5 @@
 const createTeam = (team) => {
-  const generateManager = (manager) => {
+  const generateManager = manager => {
     return `
         <div class="card team-member-card">
             <div class="card-header bg-primary text-white">
@@ -13,10 +13,10 @@ const createTeam = (team) => {
                     <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
                 </ul>
             </div> 
-        </div>`;
+        </div>`
   };
 
-  const generateEngineer = (engineer) => {
+  const generateEngineer = engineer => {
     return `
         <div class="card team-member-card">
             <div class="card-header bg-primary text-white">
@@ -30,11 +30,11 @@ const createTeam = (team) => {
                     <li class="list-group-item">GitHub Username: <a href="https://github.com/${engineer.getGithub()}" alt="gitHub">${engineer.getGithub()}</a>
                 </ul>
             </div> 
-        </div>`;
+        </div>`
   };
 
 
-  const generateIntern = (intern) => {
+  const generateIntern = intern => {
     return `
 <div class="card team-member-card">
     <div class="card-header bg-primary text-white">
@@ -48,8 +48,7 @@ const createTeam = (team) => {
             <li class="list-group-item">School: ${intern.getSchool()}</li>
         </ul>
     </div>
-</div>
-        `;
+</div>`
   };
 
   const html = [];
@@ -104,7 +103,7 @@ module.exports = (team) => {
             </div>
         </div>
     </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 </body>
