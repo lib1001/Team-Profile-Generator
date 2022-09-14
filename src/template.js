@@ -4,13 +4,13 @@ const createTeam = (team) => {
         <div class="card team-member-card">
             <div class="card-header bg-primary text-white">
                 <h2>${manager.getName()}</h2>
-                <h3><i class="fas fa-mug-hot mr-2"></i>${manager.getJob()}</h3>
+                <h3><i class="fas fa-mug-hot mr-2"></i>${manager.getRole()}</h3>
             </div>   
             <div class="card-main">
-                <ul class="list-group">
-                    <li class="list-group-item">ID: ${manager.getId()}</li>
-                    <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-                    <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
+                <ul>
+                    <li>ID: ${manager.getId()}</li>
+                    <li>Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+                    <li>Office Number: ${manager.getOfficeNumber()}</li>
                 </ul>
             </div> 
         </div>`
@@ -21,13 +21,13 @@ const createTeam = (team) => {
         <div class="card team-member-card">
             <div class="card-header bg-primary text-white">
                 <h2>${engineer.getName()}</h2>
-                <h3><i class="fas fa-glasses mr-2"></i>${engineer.getJob()}</h3>
+                <h3><i class="fas fa-glasses mr-2"></i>${engineer.getRole()}</h3>
             </div>   
             <div class="card-main">
-                <ul class="list-group">
-                    <li class="list-group-item">ID: ${engineer.getId()}</li>
-                    <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}" alt="email">${engineer.getEmail()}</a></li>
-                    <li class="list-group-item">GitHub Username: <a href="https://github.com/${engineer.getGithub()}" alt="gitHub">${engineer.getGithub()}</a>
+                <ul>
+                    <li>ID: ${engineer.getId()}</li>
+                    <li>Email: <a href="mailto:${engineer.getEmail()}" alt="email">${engineer.getEmail()}</a></li>
+                    <li>GitHub Username: <a href="https://github.com/${engineer.getGithub()}" alt="gitHub">${engineer.getGithub()}</a>
                 </ul>
             </div> 
         </div>`
@@ -39,13 +39,13 @@ const createTeam = (team) => {
 <div class="card team-member-card">
     <div class="card-header bg-primary text-white">
         <h2>${intern.getName()}</h2>
-        <h3><i class="fas fa-user-graduate mr-2"></i>${intern.getJob()}</h3>
+        <h3><i class="fas fa-user-graduate mr-2"></i>${intern.getRole()}</h3>
     </div>
     <div class="card-main">
-        <ul class="list-group">
-            <li class="list-group-item">ID: ${intern.getId()}</li>
-            <li class="list-group-item">Email: [${intern.getEmail()}](mailTo:${intern.getEmail()})</li>
-            <li class="list-group-item">School: ${intern.getSchool()}</li>
+        <ul>
+            <li>ID: ${intern.getId()}</li>
+            <li>Email: <a href="mailto:${intern.getEmail()}" alt="email">${intern.getEmail()}</a></li>
+            <li>School: ${intern.getSchool()}</li>
         </ul>
     </div>
 </div>`
@@ -55,18 +55,18 @@ const createTeam = (team) => {
 
   html.push(
     team
-      .filter((employee) => employee.getJob() === "Manager")
+      .filter((employee) => employee.getRole() === "Manager")
       .map((manager) => generateManager(manager))
   );
   html.push(
     team
-      .filter((employee) => employee.getJob() === "Engineer")
+      .filter((employee) => employee.getRole() === "Engineer")
       .map((engineer) => generateEngineer(engineer))
       .join("")
   );
   html.push(
     team
-      .filter((employee) => employee.getJob() === "Intern")
+      .filter((employee) => employee.getRole() === "Intern")
       .map((intern) => generateIntern(intern))
       .join("")
   );
@@ -86,6 +86,7 @@ module.exports = (team) => {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" href="./output/style.css">
+<script src="https://kit.fontawesome.com/45142689e7.js" crossorigin="anonymous"></script>
 <title>Team Profile Generator</title>
 </head>
 <body>

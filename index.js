@@ -121,8 +121,8 @@ function init () {
             }
         ])
         .then(answers => {
-            const manager = new Manager(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
-            teamArr.push(manager);
+            const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+            teamArr.push(intern);
             generateTeam();
         })
     }
