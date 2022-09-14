@@ -116,7 +116,7 @@ function init () {
             },
             {
                 type: 'input',
-                message: "Where doesthe intern attend school?",
+                message: "Where does the intern attend school?",
                 name: 'internSchool'
             }
         ])
