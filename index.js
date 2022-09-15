@@ -11,7 +11,7 @@ const createTeam = require('./src/template.js');
 
 let teamMemberArr = [];
 
-    function createManager() {
+    const createManager = () => {
          inquirer.prompt([ 
             {
                  type: 'input',
@@ -137,11 +137,6 @@ let teamMemberArr = [];
             writeToFile('team.html', createTeam(teamMemberArr))
         })
     };
-        
-
-
-createTeam();
-
 
 
 init();
