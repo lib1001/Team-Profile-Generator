@@ -23,7 +23,7 @@ const generateEngineer = engineer => {
         </div>
         <div class="card-body">
             <p class="card-text id">ID: ${engineer.id}</p>
-            <p class="card-text email">Email: <a href="mailto:${engineer.email}" alt="Manager email">${engineer.email}</a></p>
+            <p class="card-text email">Email: <a href="mailto:${engineer.email}" alt="Engineer email">${engineer.email}</a></p>
             <p class="card-text githubr">GitHub: <a href="https://github.com/${engineer.github}">${engineer.github}</p>
         </div>
     </div>    
@@ -39,7 +39,7 @@ const generateIntern = intern => {
         </div>
         <div class="card-body">
             <p class="card-text id">ID: ${intern.id}</p>
-            <p class="card-text email">Email: <a href="mailto:${intern.email}" alt="Manager email">${engineer.email}</a></p>
+            <p class="card-text email">Email: <a href="mailto:${intern.email}" alt="Intern email">${intern.email}</a></p>
             <p class="card-text school">School: ${intern.school}</p>
         </div>
     </div>    
@@ -76,7 +76,7 @@ createTeam = (data) => {
     
     const newEmployees = teamArr.join('')
 
-    const generateTeam = generateTeamHTMLPage(newEmployees); 
+    const generateTeam = generateHTMLPage(newEmployees); 
     return generateTeam;
 }
 

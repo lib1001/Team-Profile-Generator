@@ -11,7 +11,7 @@ const createTeam = require('./src/template.js');
 
 let teamMemberArr = [];
 
-    const createManager = () => {
+    function createManager() {
          inquirer.prompt([ 
             {
                  type: 'input',
@@ -59,8 +59,11 @@ let teamMemberArr = [];
                 case 'Intern':
                     return createIntern();
                     break;
+                case 'My team is complete':
+                    return generateTeam();
+                    break;
                 default:
-                    return createTeam();       
+                    break;      
             }
         })
     }
@@ -125,18 +128,17 @@ let teamMemberArr = [];
         })
     }
 
-    function writeToFile(fileName, data) {
-        return fs.writeFile(fileName, data, (err) =>
+
+
+
+
+
+    function generateTeam() {
+        const teamPage = createTeam(teamMemberArr);
+    
+        fs.writeFile('index.html', teamPage, (err) =>
         {err ? console.error(err) : console.log('Success! Your HTML page has been created.')}
         )
     }
-
-    function init () {
-        createManager()
-        .then(teamMemberArr => {
-            writeToFile('team.html', createTeam(teamMemberArr))
-        })
-    };
-
-
-init();
+    
+createManager();
