@@ -1,5 +1,4 @@
 const Employee = require("../lib/employee");
-const newEmployee = require("../lib/employee");
 
 describe("newEmployee", () => {
     it("Creates new employee object with name, email, and id if given", () => {
@@ -26,6 +25,6 @@ describe("newEmployee", () => {
     it("Gets employee as role", () => {
         const employee = new Employee("Adam", 1, "adam@test.com");
         const result = employee.getRole();
-        expect(result).toEqual("employee");
+        expect(result).toEqual("Employee");
     })
 })
