@@ -131,32 +131,20 @@ let teamMemberArr = [];
         })
     }
 
-    // function writeToFile(fileName, data) {
-    //     return fs.writeFile(fileName, data, (err) =>
-    //     {err ? console.error(err) : console.log('Success! Your HTML page has been created.')}
-    //     )
-    // }
+    function writeToFile(fileName, data) {
+        return fs.writeFile(fileName, data, (err) =>
+        {err ? console.error(err) : console.log('Success! Your HTML page has been created.')}
+        )
+    }
 
     function init () {
         createManager()
-        // .then(responses => {
-        //     writeToFile('team.html', )
-        // })
+        .then(teamMemberArr => {
+            writeToFile('team.html', createTeam(teamMemberArr))
+        })
     };
-
-    // function init() {
-    //     inquirer.prompt(questions)
-    //     .then(answers => {
-    //         writeToFile('README.md', markupGenerator({ ...answers}));
-    //     }
-    //     )};
         
-    
-function createHTML () {
-    console.log('Success! Your HTML page has been created.')
-    fs.writeFileSync(outputPath, createTeam(teamArr))
 
-}
 
 createTeam();
 
