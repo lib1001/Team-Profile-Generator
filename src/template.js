@@ -103,7 +103,7 @@ const generateHTMLPage = (newEmployees) => {
     </div>
 
         <div class="container">
-            <div class="row justify-content-center mx-auto">
+            <div class="row justify-content-center mx-auto" id="employee-card">
                 ${newEmployees}
             </div>
         </div>
