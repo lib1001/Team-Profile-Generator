@@ -9,12 +9,6 @@ const Intern = require('./lib/Intern');
 //link to template
 const createTeam = require('./src/template.js');
 
-
-
-
-const OUTPUT_DIR = path.resolve(__dirname, 'output');
-const outputPath = path.join(OUTPUT_DIR, 'team.html');
-
 let teamMemberArr = [];
 
     function createManager() {
