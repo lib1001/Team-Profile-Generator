@@ -1,89 +1,87 @@
-const generateManager = manager => {
-    return `
+const generateManager = (manager) => {
+  return `
     <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
         <div class="card-header">
             <h2>${manager.name}</h2>
             <h3>Manager</h3><i class="fa-solid fa-mug-hot"></i>
         </div>
-        <div class="card-body">
+        <div class="card-body bg-white text-black">
             <p class="card-text id">ID: ${manager.id}</p>
             <p class="card-text email">Email: <a href="mailto:${manager.email}" alt="Manager email">${manager.email}</a></p>
             <p class="card-text office-number">Office Number: ${manager.office}</p>
         </div>
     </div>    
-`
-}
+`;
+};
 
-const generateEngineer = engineer => {
-    return `
+const generateEngineer = (engineer) => {
+  return `
     <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
         <div class="card-header">
             <h2>${engineer.name}</h2>
-            <h3>Manager</h3><i class="fa-solid fa-glasses"></i>
+            <h3>Engineer</h3><i class="fa-solid fa-glasses"></i>
         </div>
-        <div class="card-body">
+        <div class="card-body bg-white text-black">
             <p class="card-text id">ID: ${engineer.id}</p>
             <p class="card-text email">Email: <a href="mailto:${engineer.email}" alt="Engineer email">${engineer.email}</a></p>
-            <p class="card-text githubr">GitHub: <a href="https://github.com/${engineer.github}">${engineer.github}</p>
+            <p class="card-text github">GitHub: <a href="https://github.com/${engineer.github}">${engineer.github}</p>
         </div>
     </div>    
-`
-}
+`;
+};
 
-const generateIntern = intern => {
-    return `
+const generateIntern = (intern) => {
+  return `
     <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
         <div class="card-header">
             <h2>${intern.name}</h2>
-            <h3>Manager</h3><i class="fa-solid fa-graduation-cap"></i>
+            <h3>Intern</h3><i class="fa-solid fa-glasses"></i>
         </div>
-        <div class="card-body">
+        <div class="card-body bg-white text-black">
             <p class="card-text id">ID: ${intern.id}</p>
             <p class="card-text email">Email: <a href="mailto:${intern.email}" alt="Intern email">${intern.email}</a></p>
             <p class="card-text school">School: ${intern.school}</p>
         </div>
     </div>    
-`
-}
+`;
+};
 
 createTeam = (data) => {
-    let teamArr = [];
-    
-    for (var i = 0; i < data.length; i++) {
-        const teamMember = data[i];
-        const role = teamMember.getRole();
+  let teamArr = [];
 
-        if (role === 'Manager') {
-            const managerInfo = generateManager(teamMember);
+  for (var i = 0; i < data.length; i++) {
+    const teamMember = data[i];
+    const role = teamMember.getRole();
 
-            teamArr.push(managerInfo);
-        }
+    if (role === "Manager") {
+      const managerInfo = generateManager(teamMember);
 
-        // call engineer function
-        if (role === 'Engineer') {
-            const engineerInfo = generateEngineer(teamMember);
-
-            teamArr.push(engineerInfo);
-        }
-
-        // call intern function 
-        if (role === 'Intern') {
-            const internInfo = generateIntern(teamMember);
-
-            teamArr.push(internInfo);
-        }
+      teamArr.push(managerInfo);
     }
-    
-    const newEmployees = teamArr.join('')
 
-    const generateTeam = generateHTMLPage(newEmployees); 
-    return generateTeam;
-}
+    // call engineer function
+    if (role === "Engineer") {
+      const engineerInfo = generateEngineer(teamMember);
 
+      teamArr.push(engineerInfo);
+    }
 
+    // call intern function
+    if (role === "Intern") {
+      const internInfo = generateIntern(teamMember);
+
+      teamArr.push(internInfo);
+    }
+  }
+
+  const newEmployees = teamArr.join("");
+
+  const generateTeam = generateHTMLPage(newEmployees);
+  return generateTeam;
+};
 
 const generateHTMLPage = (newEmployees) => {
-    return `
+  return `
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,7 +103,7 @@ const generateHTMLPage = (newEmployees) => {
     </div>
 
         <div class="container">
-            <div class="row justify-content-center" id="employee-card">
+            <div class="row justify-content-center mx-auto">
                 ${newEmployees}
             </div>
         </div>
@@ -114,8 +112,7 @@ const generateHTMLPage = (newEmployees) => {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 </body>
-</html>`
-}
-
+</html>`;
+};
 
 module.exports = createTeam;
